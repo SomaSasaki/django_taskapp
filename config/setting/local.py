@@ -1,5 +1,5 @@
 from pathlib import Path
-from .production import *
+from .staging import *
 
 SECRET_KEY = '*'
 DEBUG = True
