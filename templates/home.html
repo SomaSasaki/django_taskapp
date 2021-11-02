@@ -1,16 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <link href="static/css/main.css" rel="stylesheet">
+        <link href="{% static 'css/main.css' %}" rel="stylesheet">
     </head>
 
     <body>
         <h1>明日の予定は？</h1>
 
+        <div class='box4'>
         {% for i in demomodels %}
-        <li>{{ i.pk }} {{ i.title }} {{ i.number }}</li>
+        <p>{{ i.pk }} {{ i.title }} {{ i.number }}</p>
         {% endfor %}
+        </div>
 
     </body>
 </html>
