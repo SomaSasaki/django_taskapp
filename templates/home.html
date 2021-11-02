@@ -7,5 +7,9 @@
 
     <body>
         <h1>明日の予定は？</h1>
+
+        {% for i in demomodels %}
+        <li>{{ i.pk }} {{ i.title }} {{ i.number }}</li>
+        {% endfor %}
     </body>
 </html>
