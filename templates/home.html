@@ -20,7 +20,6 @@
         <th scope="col">場所</th>
         <th scope="col">日時</th>
         <th scope="col">あと何日</th>
-        <th scope="col">誰と</th>
     </tr>
     </thead>
     <tbody>
@@ -29,9 +28,8 @@
         <td>{{ i.pk }}</td>
         <td>{{ i.title }}</td>
         <td>{{ i.field }}</td>
-        <td>{{ i.date }}</td>
+        <td>{{ i.date | date:"Y/n/j H:i"}}</td>
         <td>{{ i.delta }}</td>
-        <td>{{ i.together }}</td>
     </tr>
     {% endfor %}
     </tbody>
