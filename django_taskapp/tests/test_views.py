@@ -6,4 +6,4 @@ class TestHomeView(TestCase):
         c = Client()
         response = c.get('')
         self.assertEqual(response.status_code, 200)
-        self.assertTrue('hello' in str(response.content))
+        self.assertTrue('1' in str(response.content))
