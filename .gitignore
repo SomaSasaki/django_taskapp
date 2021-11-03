@@ -1,9 +1,6 @@
 myvenv/
 venv/
 .idea/
-/.DS_Store
-/config/.DS_Store
-/django_taskapp/.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
