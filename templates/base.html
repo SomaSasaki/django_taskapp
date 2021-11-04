@@ -7,12 +7,27 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <title>django_taskapp</title>
 </head>
 
 <body>
 <h1>明日の予定は？</h1>
+
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link" href="#">ホーム</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">予定の登録</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">フレンドリスト</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Q&A</a>
+    </li>
+</ul>
+
 {% block schedule %}{% endblock %}
 </body>
 </html>
