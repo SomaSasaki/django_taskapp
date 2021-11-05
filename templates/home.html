@@ -1,28 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block schedule %}
-<table class='table table-striped'>
-    <thead>
-    <tr>
-        <th scope="col">ID</th>
-        <th scope="col">タイトル</th>
-        <th scope="col">場所</th>
-        <th scope="col">日時</th>
-        <th scope="col">あと何日</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for i in demoSchedule %}
-    <tr>
-        <td><a href= "#">{{ i.pk }}</a></td>
-        <td>{{ i.title }}</td>
-        <td>{{ i.field }}</td>
-        <td>{{ i.date | date:"Y/n/j H:i"}}</td>
-        <td>{{ i.delta }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% block main %}
+    <table class='table table-striped'>
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Place</th>
+            <th scope="col">Date</th>
+            <th scope="col">Countdown</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in demoSchedule %}
+            <tr>
+                <td><a href="#">{{ i.pk }}</a></td>
+                <td>{{ i.title }}</td>
+                <td>{{ i.field }}</td>
+                <td>{{ i.date | date:"Y/n/j H:i"}}</td>
+                <td>{{ i.delta }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
 
