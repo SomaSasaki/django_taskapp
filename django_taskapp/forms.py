@@ -1,12 +1,8 @@
 from django import forms
+from .models import DemoScheduleTable
 
 
-class RegistrationTask(forms.Form):
-    title = forms.CharField(
-        label='summary',
-        max_length=50,
-    )
-    field = forms.CharField(
-        label='place',
-        max_length=10,
-    )
+class RegistrationForm(forms.ModelForm):
+    class Meta:
+        model = DemoScheduleTable
+        fields = '__all__'
