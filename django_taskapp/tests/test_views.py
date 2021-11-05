@@ -9,8 +9,3 @@ class TestHomeView(TestCase):
         url = reverse_lazy('home')
         response = c.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTrue('id' in str(response.content))
-        self.assertTrue('Title' in str(response.content))
-        self.assertTrue('Place' in str(response.content))
-        self.assertTrue('Date' in str(response.content))
-        self.assertTrue('Countdown' in str(response.content))

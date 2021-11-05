@@ -10,17 +10,18 @@
             <th scope="col">Title</th>
             <th scope="col">Place</th>
             <th scope="col">Date</th>
-            <th scope="col">Countdown</th>
+            <th scope="col">Author</th>
         </tr>
         </thead>
         <tbody>
-        {% for i in demoSchedule %}
+        {% for i in schedules %}
             <tr>
                 <td><a href="#">{{ i.pk }}</a></td>
-                <td>{{ i.title }}</td>
-                <td>{{ i.field }}</td>
-                <td>{{ i.date | date:"Y/n/j H:i"}}</td>
-                <td>{{ i.delta }}</td>
+                <td>{{ i.summary }}</td>
+                <td>{{ i.place }}</td>
+                <td>{{ i.date | date:"Y/n/j"}}</td>
+                <td>{{ i.author }}</td>
+                <td></td>
             </tr>
         {% endfor %}
         </tbody>

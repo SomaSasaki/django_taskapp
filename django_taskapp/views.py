@@ -1,6 +1,6 @@
 from django.views.generic import FormView
 from django.views.generic import ListView
-from .models import DemoScheduleTable
+from .models import ScheduleModel
 from .forms import RegistrationForm
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -8,12 +8,12 @@ from django.urls import reverse_lazy
 
 class HomeView(ListView):
     template_name = "home.html"
-    model = DemoScheduleTable
-    context_object_name = 'demoSchedule'
+    model = ScheduleModel
+    context_object_name = 'schedules'
 
 
 class RegistrationView(FormView):
-    template_name = "taskregister.html"
+    template_name = "registration.html"
     form_class = RegistrationForm
     success_url = reverse_lazy('home')
 
