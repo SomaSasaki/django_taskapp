@@ -19,7 +19,7 @@ $ git clone https://github.com/SomaSasaki/django_taskapp.git
 ブランチ名は他人と被らないようにお願いします。
 
 ```
-$ git checkout -b develop main  //masterブランチからdevelopブランチを作成
+$ git checkout -b develop main  //mainブランチからdevelopブランチを作成
 $ git branch -vv //ブランチを確認
 $ git push -u origin develop //githubにdevelopブランチを登録
 ```
