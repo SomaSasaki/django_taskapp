@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }}
+
+{% block main %}
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" value="保存">
+        </form>
+    </div>
+{% endblock %}

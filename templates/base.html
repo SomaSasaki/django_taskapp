@@ -1,0 +1,34 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='slim' %}
+{{ form.media }}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Shower</title>
+</head>
+
+<body>
+<h1>明日の予定は？</h1>
+
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link" href={% url "home" %}>ホーム</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href={% url "registration" %}>予定の登録</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">フレンドリスト</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Q&A</a>
+    </li>
+</ul>
+
+{% block main %}{% endblock %}
+</body>
+</html>

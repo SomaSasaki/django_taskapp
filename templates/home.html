@@ -1,4 +1,30 @@
-<!--最速Hello World-->
-<!DOCTYPE html>
-<head></head>
-<body>hello</body>
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block main %}
+    <table class='table table-striped'>
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Place</th>
+            <th scope="col">Date</th>
+            <th scope="col">Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in schedules %}
+            <tr>
+                <td><a href="#">{{ i.pk }}</a></td>
+                <td>{{ i.summary }}</td>
+                <td>{{ i.place }}</td>
+                <td>{{ i.date | date:"Y/n/j"}}</td>
+                <td>{{ i.author }}</td>
+                <td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
