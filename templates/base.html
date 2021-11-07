@@ -12,23 +12,33 @@
 </head>
 
 <body>
-<h1>明日の予定は？</h1>
+<h1 class="row justify-content-center">明日の予定は？</h1>
 
-<ul class="nav nav-pills">
-    <li class="nav-item">
-        <a class="nav-link" href={% url "home" %}>ホーム</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href={% url "registration" %}>予定の登録</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">フレンドリスト</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Q&A</a>
-    </li>
-</ul>
+<div class="row justify-content-center">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href={% url "home" %}>ホーム</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href={% url "registration" %}>予定の登録</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">フレンドリスト</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Q&A</a>
+        </li>
+    </ul>
+</div>
 
-{% block main %}{% endblock %}
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                {% block main %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

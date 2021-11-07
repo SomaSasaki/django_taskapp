@@ -6,11 +6,9 @@
 {{ form.media }}
 
 {% block main %}
-    <div class="card-body">
-        <form method="post">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <input type="submit" value="保存">
-        </form>
-    </div>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="保存">
+    </form>
 {% endblock %}
