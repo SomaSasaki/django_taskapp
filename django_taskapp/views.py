@@ -10,6 +10,7 @@ class HomeView(ListView):
     template_name = "home.html"
     model = ScheduleModel
     context_object_name = 'schedules'
+    ordering = 'date'
 
 
 class RegistrationView(FormView):
