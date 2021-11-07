@@ -127,5 +127,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 BOOTSTRAP4 = {
+    'set_placeholder': False,
     'include_jquery': True,
 }
