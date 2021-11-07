@@ -6,7 +6,7 @@ import bootstrap_datepicker_plus as datetimepicker
 class RegistrationForm(forms.ModelForm):
     class Meta:
         model = ScheduleModel
-        fields = '__all__'
+        fields = ['summary', 'date', 'place', 'time', 'detail']
         widgets = {
             'date': datetimepicker.DatePickerInput(
                 format='%Y-%m-%d',
