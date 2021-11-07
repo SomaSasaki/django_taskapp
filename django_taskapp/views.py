@@ -12,6 +12,12 @@ class HomeView(ListView):
     context_object_name = 'schedules'
     ordering = 'date'
 
+class HomePreviousView(ListView):
+    template_name = "previous.html"
+    model = ScheduleModel
+    context_object_name = 'schedules'
+    ordering = '-date'
+
 
 class RegistrationView(FormView):
     template_name = "registration.html"
