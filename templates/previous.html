@@ -4,8 +4,8 @@
 {% load compare_date %}
 
 {% block main %}
-    <button class="btn btn-primary btn-sm" onclick="location.href='{% url "previous" %}'">今後の予定</button>
-    <table class='table table-striped'>
+    <button class="btn btn-secondary btn-sm" onclick="location.href='{% url "home" %}'">過去の予定</button>
+    <table class='table table-striped list-group-item-dark'>
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -16,7 +16,7 @@
         </thead>
         <tbody>
         {% for i in schedules %}
-            {% if i.date|is_future %}
+            {% if i.date|is_previous %}
                 <tr>
                     <td><a href="#">{{ i.pk }}</a></td>
                     <td>{{ i.summary }}</td>
