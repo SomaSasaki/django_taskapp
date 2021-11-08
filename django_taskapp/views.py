@@ -8,15 +8,13 @@ from django.urls import reverse_lazy
 
 class HomeView(ListView):
     template_name = "home.html"
-    model = ScheduleModel
+    queryset = ScheduleModel.objects.order_by('date')
     context_object_name = 'schedules'
-    ordering = 'date'
 
 class HomePreviousView(ListView):
     template_name = "previous.html"
-    model = ScheduleModel
+    queryset = ScheduleModel.objects.order_by('date')
     context_object_name = 'schedules'
-    ordering = '-date'
 
 
 class RegistrationView(FormView):
@@ -26,5 +24,9 @@ class RegistrationView(FormView):
 
     def form_valid(self, form):
         form.save()
-        messages.add_message(self.request, messages.SUCCESS, '登録しました！')
+        #messages.add_message(self.request, messages.SUCCESS, '登録しました！')
         return super().form_valid(form)
+
+    def form_invalid(self, form):
+        #messages.error(self.request, '入力内容をご確認ください。')
+        return super().form_invalid(form)
