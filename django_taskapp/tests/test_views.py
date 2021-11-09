@@ -18,6 +18,7 @@ class TestPostSchedule(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_post_registration(self):
+        self.assertEqual(ScheduleModel.objects.all().count(), 0)
         c = Client()
         response = c.post(reverse_lazy("registration"), {
             'summary': 'テスト',
