@@ -29,3 +29,19 @@ class TestPostValidateSchedule(TestCase):
         })
         self.assertRedirects(response, expected_url=reverse_lazy("home"), status_code=302, target_status_code=200)
         self.assertEqual(ScheduleModel.objects.all().count(), 2)
+        # Clear PNG
+        response = c.post(reverse_lazy("registration"), {
+            'summary': 'sample.png',
+            'date': '2021-11-25'
+        })
+        self.assertRedirects(response, expected_url=reverse_lazy("home"), status_code=302, target_status_code=200)
+        self.assertEqual(ScheduleModel.objects.all().count(), 3)
+        # Clear SQL
+        response = c.post(reverse_lazy("registration"), {
+            'summary': "'1' or '1' = '1';--",
+            'date': '2021-11-25'
+        })
+        self.assertRedirects(response, expected_url=reverse_lazy("home"), status_code=302, target_status_code=200)
+        self.assertEqual(ScheduleModel.objects.all().count(), 4)
+
+
