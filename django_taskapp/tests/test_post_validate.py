@@ -43,10 +43,16 @@ class TestPostValidateSchedule(TestCase):
         })
         self.assertRedirects(response, expected_url=reverse_lazy("home"), status_code=302, target_status_code=200)
         self.assertEqual(ScheduleModel.objects.all().count(), 4)
-        # False Over 20character
+        # False date
         response = c.post(reverse_lazy("registration"), {
             'summary': '12345678901234567890',
             'date': 'aaaa-11-25'
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(ScheduleModel.objects.all().count(), 4)
+        response = c.post(reverse_lazy("registration"), {
+            'summary': 'テスト',
+            'date': '2021/11/25'
         })
         self.assertEqual(response.status_code, 200)
         self.assertEqual(ScheduleModel.objects.all().count(), 4)
