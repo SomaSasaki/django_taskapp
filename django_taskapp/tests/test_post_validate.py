@@ -79,7 +79,7 @@ class TestPostValidateSchedule(TestCase):
         })
         self.assertRedirects(response, expected_url=reverse_lazy("home"), status_code=302, target_status_code=200)
         self.assertEqual(ScheduleModel.objects.all().count(), 7)
-        # False date
+        # False not exist date
         response = c.post(reverse_lazy("registration"), {
             'summary': 'test',
             'date': '2021-8-32'
