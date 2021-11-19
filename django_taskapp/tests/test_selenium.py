@@ -2,7 +2,7 @@ from django.test import TestCase
 from selenium import webdriver
 
 
-class TestMySelenium(TestCase):
+class TestFireFox(TestCase):
 
     def setUp(self):
         self.driver = webdriver.Firefox()
@@ -11,3 +11,4 @@ class TestMySelenium(TestCase):
         driver = self.driver
         driver.get("http://localhost:8000")
         self.assertIn("Schedule Viewer", driver.title)
+        driver.quit()
