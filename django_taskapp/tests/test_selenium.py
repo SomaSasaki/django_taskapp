@@ -1,20 +1,13 @@
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
-from django.urls import reverse_lazy
+from django.test import TestCase
+from selenium import webdriver
 
 
-class MySeleniumTests(StaticLiveServerTestCase):
+class TestMySelenium(TestCase):
 
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.selenium = WebDriver()
-        cls.selenium.implicitly_wait(100)
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.selenium.quit()
-        super().tearDownClass()
+    def setUp(self):
+        self.driver = webdriver.Firefox()
 
     def test_home(self):
-        self.selenium.get("http://localhost:8000")
+        driver = self.driver
+        driver.get("http://localhost:8000")
+        self.assertIn("Schedule Viewer", driver.title)
