@@ -1,6 +1,7 @@
 myvenv/
 venv/
 .idea/
+geckodriver.log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
