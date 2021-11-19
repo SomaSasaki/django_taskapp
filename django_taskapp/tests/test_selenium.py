@@ -11,12 +11,15 @@ class TestFireFox(TestCase):
     def test_home(self):
         driver = self.driver
         driver.get("http://localhost:8000")
+        self.assertIn("Schedule Viewer", driver.title)
 
-        ele_text = []
+        a_list = []
         elements = driver.find_elements(By.TAG_NAME, 'a')
         for e in elements:
-            ele_text.append(e.text)
+            a_list.append(e.text)
 
-        self.assertIn("Schedule Viewer", driver.title)
-        self.assertIn("HOME", ele_text)
+        self.assertIn("HOME", a_list)
+        self.assertIn("SCHEDULE", a_list)
+        self.assertIn("FRIEND", a_list)
+        self.assertIn("Q&A", a_list)
         driver.quit()
