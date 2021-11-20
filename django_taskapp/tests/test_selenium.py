@@ -8,6 +8,9 @@ class TestFireFox(TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
 
+    def tearDown(self):
+        self.driver.quit()
+
     def test_home(self):
         driver = self.driver
         driver.get("http://localhost:8000")
@@ -22,4 +25,8 @@ class TestFireFox(TestCase):
         self.assertIn("SCHEDULE", a_list)
         self.assertIn("FRIEND", a_list)
         self.assertIn("Q&A", a_list)
-        driver.quit()
+
+    def test_register(self):
+        driver = self.driver
+        driver.get("http://localhost:8000/register/")
+        elements = driver.find_elements(By.TAG_NAME, 'input')
