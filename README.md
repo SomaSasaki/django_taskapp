@@ -15,7 +15,6 @@ $ git clone https://github.com/SomaSasaki/django_taskapp.git
 ```
 
 #### 3. ブランチを作成する。<br>
-誤って他人のブランチを破壊しないよう、必ず新規作成してください。<br>
 ブランチ名は他人と被らないようにお願いします。
 
 ```
