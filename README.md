@@ -30,7 +30,8 @@ $ git push -u origin develop //githubにdevelopブランチを登録
 
 ```
 $ pip3 install -r requirements.txt
-$ python3 manage.py makemigtations --settings config.setting.local
+$ python3 manage.py makemigtations accounts --settings config.setting.local
+$ python3 manage.py makemigtations django_taskapp --settings config.setting.local
 $ python3 manage.py migrate --settings config.setting.local
 $ python3 manage.py runserver --settings config.setting.local
 ```
