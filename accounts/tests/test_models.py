@@ -11,7 +11,7 @@ from django.test import TestCase
 
 
 class TestCustomUser(TestCase):
-    
+
     def test_base_model(self):
         email = 'test@gmail.com'
         password = 'aaa111'
@@ -23,7 +23,7 @@ class TestCustomUser(TestCase):
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
         self.assertTrue(user.is_active)
-        
+
         user.username = 'testuser'
         user.save()
         self.assertEqual(user.username, 'testuser')
