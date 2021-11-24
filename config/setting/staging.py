@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +31,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -39,7 +39,13 @@ INSTALLED_APPS = [
     'django_taskapp',
     'bootstrap4',
     'bootstrap_datepicker_plus',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'accounts.apps.AccountsConfig',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -118,7 +124,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     'static',
-    'boot'
 ]
 
 # Default primary key field type
@@ -130,3 +135,23 @@ BOOTSTRAP4 = {
     'set_placeholder': False,
     'include_jquery': True,
 }
+
+##################
+# Authentication #
+##################
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# 認証方式を「メールアドレスとパスワード」に変更
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ユーザー名は使用しない
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
+# ユーザー登録確認メールは送信しない
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+# メールアドレスを必須項目にする
+ACCOUNT_EMAIL_REQUIRED = True
+
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'

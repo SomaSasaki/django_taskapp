@@ -4,21 +4,22 @@ from .models import ScheduleModel
 from .forms import RegistrationForm
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class HomeView(ListView):
+class HomeView(LoginRequiredMixin,ListView):
     template_name = "home.html"
     queryset = ScheduleModel.objects.order_by('date')
     context_object_name = 'schedules'
 
 
-class HomePreviousView(ListView):
+class HomePreviousView(LoginRequiredMixin,ListView):
     template_name = "previous.html"
     queryset = ScheduleModel.objects.order_by('date')
     context_object_name = 'schedules'
 
 
-class RegistrationView(FormView):
+class RegistrationView(LoginRequiredMixin,FormView):
     template_name = "registration.html"
     form_class = RegistrationForm
     success_url = reverse_lazy('home')
