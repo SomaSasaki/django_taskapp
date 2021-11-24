@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
-def get_user_profile_image_path(instance,filename):
+def get_user_profile_image_path(instance, filename):
     return 'images/user_profile/{0}/{1}'.format(instance.submitter.id, filename)
 
 
@@ -51,7 +51,7 @@ class CustomUser(AbstractUser):
     username = models.CharField(
         _('username'),
         max_length=150,
-        default = "No Name",
+        default="No Name",
         blank=True,
         null=True,
         help_text="半角アルファベット、半角数字、@/./+/-/_ で150文字以下にしてください。",
@@ -59,11 +59,8 @@ class CustomUser(AbstractUser):
     )
     # メールアドレスを必須にしてユニーク制約を付与
     email = models.EmailField(_('email address'), unique=True)
-    photo = models.ImageField(blank=True, null=True, upload_to=get_user_profile_image_path)
-    
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
     objects = CustomUserManager()
-    

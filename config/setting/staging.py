@@ -153,7 +153,5 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 # メールアドレスを必須項目にする
 ACCOUNT_EMAIL_REQUIRED = True
 
-
-
 LOGIN_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
