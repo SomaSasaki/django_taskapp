@@ -1,11 +1,11 @@
 from django import forms
-from .models import ScheduleModel
+from .models import Schedule
 import bootstrap_datepicker_plus as datetimepicker
 
 
 class RegistrationForm(forms.ModelForm):
     class Meta:
-        model = ScheduleModel
+        model = Schedule
         fields = ['summary', 'date', 'place', 'time', 'detail']
         widgets = {
             'date': datetimepicker.DatePickerInput(

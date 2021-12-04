@@ -1,7 +1,7 @@
 from django.test import Client
 from django.test import TestCase
 from django.urls import reverse_lazy
-from django_taskapp.models import ScheduleModel
+from django_taskapp.models import Schedule
 
 
 class TestHomeView(TestCase):
@@ -18,11 +18,11 @@ class TestPostSchedule(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_post_registration(self):
-        self.assertEqual(ScheduleModel.objects.all().count(), 0)
+        self.assertEqual(Schedule.objects.all().count(), 0)
         c = Client()
         response = c.post(reverse_lazy("registration"), {
             'summary': 'テスト',
             'date': '2021-11-25'
         })
         self.assertRedirects(response, expected_url=reverse_lazy("home"), status_code=302, target_status_code=200)
-        self.assertEqual(ScheduleModel.objects.all().count(), 1)
+        self.assertEqual(Schedule.objects.all().count(), 1)
