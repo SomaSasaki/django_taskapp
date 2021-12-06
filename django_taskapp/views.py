@@ -1,8 +1,8 @@
 from django.views.generic import FormView
 from django.views.generic import ListView
+from django.views.generic import DetailView
 from .models import Schedule
 from .forms import RegistrationForm
-from django.contrib import messages
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -37,3 +37,8 @@ class RegistrationView(LoginRequiredMixin, FormView):
 
     def form_invalid(self, form):
         return super().form_invalid(form)
+
+
+class Detail(LoginRequiredMixin, DetailView):
+   model = Schedule
+   template_name = 'detail.html'
