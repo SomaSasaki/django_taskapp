@@ -12,6 +12,9 @@ class HomeView(LoginRequiredMixin, ListView):
     queryset = Schedule.objects.order_by('date')
     context_object_name = 'schedules'
 
+    def get_queryset(self):
+        return Schedule.objects.filter(owner=self.request.user)
+
 
 class HomePreviousView(LoginRequiredMixin, ListView):
     template_name = "previous.html"
@@ -25,10 +28,9 @@ class RegistrationView(LoginRequiredMixin, FormView):
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
+        form.instance.owner = self.request.user
         form.save()
-        # messages.add_message(self.request, messages.SUCCESS, '登録しました！')
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        # messages.error(self.request, '入力内容をご確認ください。')
         return super().form_invalid(form)

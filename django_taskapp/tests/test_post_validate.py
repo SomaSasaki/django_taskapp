@@ -2,12 +2,14 @@ from django.test import Client
 from django.test import TestCase
 from django.urls import reverse_lazy
 from django_taskapp.models import Schedule
+from accounts.models import CustomUser
 
 
 class TestPostValidateSchedule(TestCase):
     def test_post_registration(self):
         self.assertEqual(Schedule.objects.all().count(), 0)
         c = Client()
+        c.force_login(CustomUser.objects.create_user('tester'))
         # False Over 20character
         response = c.post(reverse_lazy("registration"), {
             'summary': '123456789012345678901',
