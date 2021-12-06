@@ -21,6 +21,9 @@ class HomePreviousView(LoginRequiredMixin, ListView):
     queryset = Schedule.objects.order_by('date')
     context_object_name = 'schedules'
 
+    def get_queryset(self):
+        return Schedule.objects.filter(owner=self.request.user)
+
 
 class RegistrationView(LoginRequiredMixin, FormView):
     template_name = "registration.html"
