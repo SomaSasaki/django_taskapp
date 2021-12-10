@@ -9,8 +9,8 @@
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">タイトル</th>
             <th scope="col">日付</th>
+            <th scope="col">タイトル</th>
         </tr>
         </thead>
         <tbody>
@@ -18,8 +18,8 @@
             {% if i.date|is_future %}
                 <tr>
                     <td><a href="{% url "detail" i.pk %}">{{ i.pk }}</a></td>
+                    <td>{{ i.date|date:"Y-n-j"}}</td>
                     <td>{{ i.summary }}</td>
-                    <td>{{ i.date|date:"Y-n-j"}}</td
                     <td></td>
                 </tr>
             {% endif %}
