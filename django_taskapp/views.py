@@ -9,7 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class HomeView(LoginRequiredMixin, ListView):
     template_name = "home.html"
-    queryset = Schedule.objects.order_by('date')
+    queryset = Schedule.objects.order_by('-date')
     context_object_name = 'schedules'
 
     def get_queryset(self):
