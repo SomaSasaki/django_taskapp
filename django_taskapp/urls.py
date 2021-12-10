@@ -3,6 +3,7 @@ from django_taskapp.views import HomeView
 from django_taskapp.views import HomePreviousView
 from django_taskapp.views import RegistrationView
 from django_taskapp.views import FriendsView
+from django_taskapp.views import SearchFriendView
 from django_taskapp.views import Detail
 
 urlpatterns = [
@@ -10,5 +11,6 @@ urlpatterns = [
     path('previous/', HomePreviousView.as_view(), name='previous'),
     path('register/', RegistrationView.as_view(), name='registration'),
     path('friends/', FriendsView.as_view(), name='friends'),
+    path('search_friend/', SearchFriendView.as_view(), name='search_friend'),
     path('detail/<int:pk>', Detail.as_view(), name='detail'),
 ]

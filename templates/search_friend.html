@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% load compare_date %}
+
+{% block main %}
+    <table class='table table-striped'>
+        <thead>
+        <tr>
+            <th scope="col">ユーザー名</th>
+            <th scope="col">ユーザーID</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in users %}
+            <tr>
+                <td>{{ i.username }}</td>
+                <td>{{ i.email }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

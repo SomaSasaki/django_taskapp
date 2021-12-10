@@ -6,6 +6,7 @@ from .models import Schedule
 from .forms import RegistrationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from accounts.models import CustomUser
 
 
 class HomeView(LoginRequiredMixin, ListView):
@@ -47,3 +48,11 @@ class Detail(LoginRequiredMixin, DetailView):
 
 class FriendsView(LoginRequiredMixin, TemplateView):
     template_name = 'friend.html'
+
+
+class SearchFriendView(LoginRequiredMixin, ListView):
+    template_name = 'search_friend.html'
+    context_object_name = 'users'
+
+    def get_queryset(self):
+        return CustomUser.objects.all()
