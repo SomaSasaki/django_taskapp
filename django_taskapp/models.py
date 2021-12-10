@@ -4,7 +4,7 @@ import datetime
 
 
 class Schedule(models.Model):
-    summary = models.CharField("タイトル　※必須", max_length=20)
+    summary = models.CharField("タイトル　※必須", max_length=25)
     date = models.DateField("日付　※必須")
     place = models.CharField("場所", max_length=20, blank=True)
     time = models.TimeField("時間", blank=True, null=True)
