@@ -1,6 +1,7 @@
 from django.views.generic import FormView
 from django.views.generic import ListView
 from django.views.generic import DetailView
+from django.views.generic import TemplateView
 from .models import Schedule
 from .forms import RegistrationForm
 from django.urls import reverse_lazy
@@ -42,3 +43,7 @@ class RegistrationView(LoginRequiredMixin, FormView):
 class Detail(LoginRequiredMixin, DetailView):
     model = Schedule
     template_name = 'detail.html'
+
+
+class FriendsView(LoginRequiredMixin, TemplateView):
+    template_name = 'friend.html'
