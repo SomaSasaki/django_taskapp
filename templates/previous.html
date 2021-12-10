@@ -20,7 +20,6 @@
                     <td><a href="{% url "detail" i.pk %}">{{ i.pk }}</a></td>
                     <td>{{ i.date|date:"Y-n-j"}}</td>
                     <td>{{ i.summary }}</td>
-                    <td></td>
                 </tr>
             {% endif %}
         {% endfor %}
