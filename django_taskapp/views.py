@@ -9,20 +9,20 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class HomeView(LoginRequiredMixin, ListView):
     template_name = "home.html"
-    queryset = Schedule.objects.order_by('-date')
     context_object_name = 'schedules'
 
     def get_queryset(self):
-        return Schedule.objects.filter(owner=self.request.user)
+        queryset = Schedule.objects.filter(owner=self.request.user)
+        return queryset.order_by('date')
 
 
 class HomePreviousView(LoginRequiredMixin, ListView):
     template_name = "previous.html"
-    queryset = Schedule.objects.order_by('date')
     context_object_name = 'schedules'
 
     def get_queryset(self):
-        return Schedule.objects.filter(owner=self.request.user)
+        queryset = Schedule.objects.filter(owner=self.request.user)
+        return queryset.order_by('-date')
 
 
 class RegistrationView(LoginRequiredMixin, FormView):
@@ -40,5 +40,5 @@ class RegistrationView(LoginRequiredMixin, FormView):
 
 
 class Detail(LoginRequiredMixin, DetailView):
-   model = Schedule
-   template_name = 'detail.html'
+    model = Schedule
+    template_name = 'detail.html'
