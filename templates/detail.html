@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<div class="container">
+   <div class="alert alert-success" role="alert">
+       <p>タイトル：{{object.summary}}</p>
+       <p>日付：{{object.date}}</p>
+       <p>場所：{{object.place}}</p>
+       <p>時間：{{object.time}}</p>
+       <p>詳細：{{object.detail}}</p>
+   </div>
+</div>
+{% endblock main %}

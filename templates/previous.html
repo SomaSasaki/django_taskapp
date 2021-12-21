@@ -8,21 +8,16 @@
     <table class='table table-striped list-group-item-dark'>
         <thead>
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Title</th>
-            <th scope="col">Date</th>
-            <th scope="col">Author</th>
+            <th scope="col">日付</th>
+            <th scope="col">タイトル</th>
         </tr>
         </thead>
         <tbody>
         {% for i in schedules %}
             {% if i.date|is_previous %}
                 <tr>
-                    <td><a href="#">{{ i.pk }}</a></td>
-                    <td>{{ i.summary }}</td>
                     <td>{{ i.date|date:"Y-n-j"}}</td>
-                    <td>{{ i.author }}</td>
-                    <td></td>
+                    <td><a href="{% url "detail" i.pk %}">{{ i.summary }}</a></td>
                 </tr>
             {% endif %}
         {% endfor %}
