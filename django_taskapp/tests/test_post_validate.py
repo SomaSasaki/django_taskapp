@@ -12,7 +12,7 @@ class TestPostValidateSchedule(TestCase):
         c.force_login(CustomUser.objects.create_user('tester'))
         # False Over 20character
         response = c.post(reverse_lazy("registration"), {
-            'summary': '123456789012345678901',
+            'summary': '12345678901234567890123456',
             'date': '2021-11-25'
         })
         self.assertEqual(response.status_code, 200)
