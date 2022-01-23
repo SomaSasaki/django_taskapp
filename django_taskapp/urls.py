@@ -12,5 +12,5 @@ urlpatterns = [
     path('register/', RegistrationView.as_view(), name='registration'),
     path('friends/', FriendsView.as_view(), name='friends'),
     path('search_friend/', SearchFriendView.as_view(), name='search_friend'),
-    path('detail/<int:pk>', Detail.as_view(), name='detail'),
+    path('detail/<uuid:pk>', Detail.as_view(), name='detail'),
 ]
